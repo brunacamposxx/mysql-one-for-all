@@ -3,13 +3,13 @@ CREATE DATABASE IF NOT EXISTS SpotifyClone;
 USE SpotifyClone;
 
 CREATE TABLE SpotifyClone.plano(
-	plano_id INT PRIMARY KEY AUTO_INCREMENT,
+		plano_id INT PRIMARY KEY AUTO_INCREMENT,
     plano VARCHAR(45) NOT NULL,
     valor DOUBLE NOT NULL
 ) ENGINE=INNODB;
 
 CREATE TABLE SpotifyClone.usuario(
-	usuario_id INT PRIMARY KEY AUTO_INCREMENT,
+		usuario_id INT PRIMARY KEY AUTO_INCREMENT,
     usuario VARCHAR(45) NOT NULL,
     idade INT NOT NULL,
     plano_id INT NOT NULL,
@@ -17,26 +17,26 @@ CREATE TABLE SpotifyClone.usuario(
 ) ENGINE=INNODB;
 
 CREATE TABLE SpotifyClone.artista(
-	artista_id INT PRIMARY KEY AUTO_INCREMENT,
+		artista_id INT PRIMARY KEY AUTO_INCREMENT,
     artista VARCHAR(45) NOT NULL
 ) ENGINE=INNODB;
 
 CREATE TABLE SpotifyClone.album(
-	album_id INT PRIMARY KEY AUTO_INCREMENT,
+		album_id INT PRIMARY KEY AUTO_INCREMENT,
     album VARCHAR(45) NOT NULL,
     artista_id INT NOT NULL,
     FOREIGN KEY (artista_id) REFERENCES SpotifyClone.artista(artista_id)
 ) ENGINE=INNODB;
 
 CREATE TABLE SpotifyClone.musica(
-	musica_id INT PRIMARY KEY AUTO_INCREMENT,
+		musica_id INT PRIMARY KEY AUTO_INCREMENT,
     musica VARCHAR(45) NOT NULL,
     album_id INT NOT NULL,
     FOREIGN KEY (album_id) REFERENCES SpotifyClone.album(album_id)
 ) ENGINE=INNODB;
 
 CREATE TABLE SpotifyClone.seguindo(
-	usuario_id INT NOT NULL,
+		usuario_id INT NOT NULL,
     artista_id INT NOT NULL,
     CONSTRAINT PRIMARY KEY (usuario_id, artista_id),
     FOREIGN KEY (usuario_id) REFERENCES SpotifyClone.usuario(usuario_id),
@@ -44,7 +44,7 @@ CREATE TABLE SpotifyClone.seguindo(
 ) ENGINE=INNODB;
 
 CREATE TABLE SpotifyClone.historico(
-	usuario_id INT NOT NULL,
+		usuario_id INT NOT NULL,
     musica_id INT NOT NULL,
     CONSTRAINT PRIMARY KEY (usuario_id, musica_id),
     FOREIGN KEY (usuario_id) REFERENCES SpotifyClone.usuario(usuario_id),
