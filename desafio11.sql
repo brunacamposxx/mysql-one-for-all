@@ -14,5 +14,3 @@ INNER JOIN SpotifyClone.historico AS h ON u.usuario_id = h.usuario_id
 INNER JOIN SpotifyClone.musica AS m ON h.musica_id = m.musica_id
 GROUP BY 1
 ORDER BY 1;
-
-SELECT * FROM cancoes_premium;
